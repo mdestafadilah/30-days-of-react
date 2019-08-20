@@ -12,29 +12,29 @@ date: Tue Oct 04 2016 21:29:25 GMT-0700 (PDT)
 includeFile: ./../_params.yaml
 ---
 
-Over the next 30 days, you'll get a good feel for the various parts of the [React](https://facebook.github.io/react/) web framework and its ecosystem.
+Selama 30 hari kedepan, kamu akan merasakan bagian dari [React](https://facebook.github.io/react/) kerangka kerja web dan alur perkembangan.
 
-Each day in our 30 day adventure will build upon the previous day's materials, so by the end of the series, you'll not only know the terms, concepts, and underpinnings of how the framework works, but be able to use React in your next web application.
+Setiap waktu selama 30 hari perjalanan akan selalu membahas materi sebelumnya, jadi diakhir cerita, kamu tidak hanya tau aturan, konsep dan dasar dasar kerangka kerja itu bekerja, tapi dapat mengaplikasikannya disetiap aplikasi web. 
 
-Let's get started. We'll start [at the very beginning](https://www.youtube.com/watch?v=1RW3nDRmu6k) as it's a very good place to start.
+Mari kita mulai. Kita akan mulai [pertama kali](https://www.youtube.com/watch?v=1RW3nDRmu6k) selahkan dilihat, bagus untuk permulaan.
 
-## What is React?
+## Apa itu React?
 
-[React](https://facebook.github.io/react/) is a JavaScript library for building user interfaces. It is the view layer for web applications.
+[React](https://facebook.github.io/react/) Sebuah library Javascript untuk pengembang tampilan muka. Semacam tampilan awal sebuah aplikasi web.
 
-At the heart of all React applications are **components**. A component is a self-contained module that renders some output. We can write interface elements like a button or an input field as a React component. Components are _composable_. A component might include one or more other components in its output.
+Setiap inti dari semua aplikasi React adalah **komponen**. Sebuah komponen itu sendiri mengandung modul sebagai tampilan. Kita dapat membuat elemen halaman, seperti tombol atau kolom inputan sebagai **Komponen React**. Komponen dalam react bersifat _composable_ (mudah digunakan kembali). Sebuah komponen mungkin memiliki satu atau lebih komponen lain yang tampil.
 
-Broadly speaking, to write React apps we write React components that correspond to various interface elements. We then organize these components inside higher-level components which define the structure of our application.
+Pada umumnya, untuk membuat aplikasi React, kita akan membuat sebuah Komponen komponen, yang mengindikasikan bermacam macam tampilan elemen. Kita dapat mengatur komponen tersebut secara lebih mantap dimana menggambarkan struktur dari aplikasi kita.
 
-For example, take a form. A form might consist of many interface elements, like input fields, labels, or buttons. Each element inside the form can be written as a React component. We'd then write a higher-level component, the form component itself. The form component would specify the structure of the form and include each of these interface elements inside of it.
+Sebagai contoh, kita ambil sebuah form. Sebuah form mungkin saja terdapat banyak tampilan elemen, seperti kolom input, label atau tombol. Setiap elemen form didalamnya dapat saja ditulis ulang sebagai komponen React. Kita sudah masuk ke konsep lebih mantap, komponen form itu sendiri. Sebuah komponen form, mungkin memiliki struktur yang lebih spesifik dan setiap elemen interface ada didalamnya.
 
-Importantly, each component in a React app abides by strict data management principles. Complex, interactive user interfaces often involve complex data and application state. The surface area of React is limited and aimed at giving us the tools to be able to anticipate how our application will look with a given set of circumstances. We dig into these principles later in the course.
+Penting, setiap kompoenen dalam aplikasi React memiliki manajemen data yang ketat. Komplek, tampilan user yang interaktif melibatkan data kompleks dan state (data) aplikasi. Area pengembangan React dibatasi dan ditunjukan untuk kita untuk dapat mengantisipasi bagaimana aplikasi kita akan terlihat dalam serangkaian keadaan tertentu. Kita akan pelajari itu semua dalam pelatihan ini.
 
-## Okay, so how do we use it?
+## Baiklah, bagimana kita dapat menggunakannya?
 
-React is a JavaScript framework. Using the framework is as simple as including a JavaScript file in our HTML and using the `React` exports in our application's JavaScript.
+React adalah Kerangka kerja JavaScript. Menggunakan kerangka kerja semudah memperkenalkan sebuah file JavaScript di HTML dan menggunakan fungsi ekport `React` diaplikasi kita.
 
-For instance, the _Hello world_ example of a React website can be as simple as:
+Sebagai contoh, the _Hello world_, dari sebuah website akan semudah seperti ini:
 
 ```html
 <html>
@@ -42,30 +42,28 @@ For instance, the _Hello world_ example of a React website can be as simple as:
   <meta charset="utf-8">
   <title>Hello world</title>
   <!-- Script tags including React -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.min.js"></script>
-  <script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.9.0/umd/react.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.8.6/umd/react-dom.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/6.1.19/browser.min.js"></script>
 </head>
 <body>
   <div id="app"></div>
   <script type="text/babel">
     ReactDOM.render(
       <h1>Hello world</h1>,
-      document.querySelector('#app')
+      document.getElementById('#app')
     );
   </script>
 </body>
 </html>
 ```
 
-<div id="demo1"></div>
+Bagaimanapun, terlihat menyeramkan bukan?, sebuah kode JavaScript dalam sebaris menampilkan _Hello wordl_ dihalaman. catat kita hanya membutuhkan sebuah JavaScirpt untuk dapat melihatnya.
 
-Although it might look a little scary, the JavaScript code is a single line that dynamically adds _Hello world_ to the page. Note that we only needed to include a handful of JavaScript files to get everything working.
+## Bagaimana cara kerjanya?
 
-## How does it work?
+Tidak seperti `predecessors`, operasi React tidak langsung pada DOM (Document Object Model) browser secara langsung!, tapi sebuah **virtual DOM**. Hanya itu, dibanding memanipulasi sebuah `document` didalam browser setelah perubahan terhadap data (dimana akan sedikit lama) dan itu bisa diatas dalam sebuah virtual DOM. Setelah virtual DOM diubah, React secara cerdas akan menentukan apa yang berubah di DOM sebenarnya.
 
-Unlike many of its predecessors, React operates not directly on the browser's Document Object Model (DOM) immediately, but on a **virtual DOM**. That is, rather than manipulating the `document` in a browser after changes to our data (which can be quite slow) it resolves changes in its virtual DOM. After the virtual DOM has been updated, React intelligently determines what changes to make to the actual DOM.
+Sebuah [Virtual DOM React](https://facebook.github.io/react/docs/dom-differences.html) ada disetiap memori dan ditampilkan ulang oleh DOM browser, tapi kita akan membuat komponen virtual, dimana React sendiri yang akan menampilkan ulang DOM itu sendiri.
 
-The [React Virtual DOM](https://facebook.github.io/react/docs/dom-differences.html) exists entirely in-memory and is a representation of the web browser's DOM. Because of this, when we write a React component, we're not writing directly to the DOM, but we're writing a virtual component that React will turn into the DOM.
-
-In the next article, we'll look at what this means for us as we build our React components and jump into JSX and writing our first real components.
+Di artikel selanjut, kita akan melihat apa maksud dari virtual DOM dalam membangun komponen React dan masuk pada JSX dan membuat komponen pertama kita.
