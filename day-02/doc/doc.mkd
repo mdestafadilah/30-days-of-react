@@ -2,7 +2,7 @@
 page_id: 30-days-of-react/day-2
 permalink: day-2
 day: 2
-title: What is JSX?
+title: Apa itu JSX?
 description: Now that we know what React is, let's take a look at a few terms and concepts that will come up throughout the rest of the series.
 hero_image: /assets/images/series/30-days-of-react/headings/2.jpg
 imageUrl:  /assets/images/series/30-days-of-react/headings/2.jpg
